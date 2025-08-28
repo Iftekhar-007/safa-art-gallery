@@ -1,21 +1,26 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
+@plugin "daisyui";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Light mode bg white */
+  --foreground: #0F0E0E; /* Light mode text black */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Cormorant Garamond', serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0F0E0E; /* Dark mode bg black */
+    --foreground: #ffffff; /* Dark mode text white */
   }
 }
 
