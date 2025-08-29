@@ -1,12 +1,56 @@
-// import AddProductForm from "@/components/AddProductForm";
+// // import AddProductForm from "@/components/AddProductForm";
 
+// import AddProductForm from "../components/AddProductForm";
+
+// export default function AddProductPage() {
+//   return (
+//     <div className="p-6 min-h-screen">
+//       <h1 className="text-2xl font-bold mb-6">Add New Product</h1>
+//       <AddProductForm />
+//     </div>
+//   );
+// }
+
+"use client";
+
+import { useSession, signIn } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import AddProductForm from "../components/AddProductForm";
 
 export default function AddProductPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/"); // যদি লগইন না থাকে, হোমপেজে পাঠিয়ে দেবে
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return <p className="text-center mt-10">Checking authentication...</p>;
+  }
+
+  if (!session) {
+    return (
+      <div className="flex flex-col items-center mt-10">
+        <p className="mb-4">You need to log in to access this page.</p>
+        <button
+          onClick={() => signIn()}
+          className="bg-blue-500 px-4 py-2 rounded text-white"
+        >
+          Login
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div className="p-6 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">Add New Product</h1>
-      <AddProductForm />
+    <div className="p-10">
+      <h1 className="text-2xl font-bold mb-4">Add Product</h1>
+      {/* এখানে তোমার প্রোডাক্ট অ্যাড করার ফর্ম থাকবে */}
+      <AddProductForm></AddProductForm>
     </div>
   );
 }

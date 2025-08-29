@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function ProductCard({ product }) {
   const shortDescription =
     product.description.split(" ").slice(0, 6).join(" ") +
@@ -15,9 +17,12 @@ export default function ProductCard({ product }) {
       <div className="p-4">
         <h3 className="text-lg font-bold text-black mb-2">{product.title}</h3>
         <p className="text-black mb-3">{shortDescription}</p>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        <Link
+          href={`/products/${product._id}`}
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
           View More
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -18,14 +18,14 @@ export default function LoginPage() {
     });
 
     if (!res.error) {
-      router.push("/dashboard");
+      router.push("/");
     } else {
       alert("Invalid credentials!");
     }
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="py-20">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
