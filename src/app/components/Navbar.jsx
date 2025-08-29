@@ -6,16 +6,30 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(pathname !== "/");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80 || pathname !== "/");
+      if (window.scrollY > 80) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // route check
+    if (pathname !== "/") {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [pathname]);
 
   return (
@@ -48,10 +62,16 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href="/">Item 1</Link>
+                <Link href="/">Home</Link>
               </li>
               <li>
                 <Link href="/aboutme">About Me</Link>
+              </li>
+              <li>
+                <Link href="/addproduct">Add Product</Link>
+              </li>
+              <li>
+                <Link href="/products">Products</Link>
               </li>
             </ul>
           </div>
@@ -69,10 +89,16 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/">Item 1</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
               <Link href="/aboutme">About Me</Link>
+            </li>
+            <li>
+              <Link href="/addproduct">Add Product</Link>
+            </li>
+            <li>
+              <Link href="/products">Products</Link>
             </li>
           </ul>
         </div>
