@@ -11,7 +11,7 @@ export default function PortfolioSection() {
         const res = await fetch("/api/products");
         const data = await res.json();
         // latest 4 if API is not limiting
-        setProducts(data.slice(0, 4));
+        setProducts(data.slice(0, 8));
       } catch (error) {
         console.error("Failed to fetch products:", error);
       }
@@ -22,8 +22,10 @@ export default function PortfolioSection() {
   return (
     <section className="py-10">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-8">Portfolio</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <h2 className="text-3xl font-bold text-center mb-8 font-sans">
+          My Portfolio
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-[url(/woodbg.webp)] p-20 w-full h-full bg-fixed rounded-xl">
           {products.map((product) => (
             <div
               key={product._id}

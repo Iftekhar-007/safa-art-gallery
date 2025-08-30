@@ -61,7 +61,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-sans"
             >
               <li>
                 <Link href="/">Home</Link>
@@ -90,7 +90,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 font-sans">
             <li>
               <Link href="/">Home</Link>
             </li>
@@ -109,11 +109,17 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {session ? (
-            <button onClick={() => signOut()} className="btn">
+            <button
+              onClick={() => signOut()}
+              className="btn btn-outline font-sans text-white"
+            >
               Log Out
             </button>
           ) : (
-            <button onClick={() => signIn()} className="btn">
+            <button
+              onClick={() => signIn()}
+              className="btn btn-outline font-sans text-white"
+            >
               Log In
             </button>
           )}
