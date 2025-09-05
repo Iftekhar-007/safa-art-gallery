@@ -13,7 +13,7 @@ const handler = NextAuth({
         const user = {
           email: "safaart@gmail.com",
           password: "123456@As",
-          name: "Admin User",
+          name: "Safa Moni",
         };
 
         if (
