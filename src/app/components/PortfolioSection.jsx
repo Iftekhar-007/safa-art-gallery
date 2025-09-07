@@ -20,31 +20,33 @@ export default function PortfolioSection() {
   }, []);
 
   return (
-    <section className="py-10">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-8 font-sans">
-          My Portfolio
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-[url(/woodbg.webp)] p-20 w-full h-full bg-fixed rounded-xl">
-          {products.map((product) => (
-            <div
-              key={product._id}
-              className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
-            >
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link href={`/products/${product._id}`}>
-                  <button className="bg-white text-black font-semibold px-4 py-2 rounded hover:bg-gray-200">
-                    View Detail
-                  </button>
-                </Link>
+    <section className="py-0">
+      <div className=" bg-[url(/woodbg.webp)] p-20 w-full h-full bg-fixed">
+        <div className="lg:w-10/12 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 font-sans">
+            My Portfolio
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
+              >
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link href={`/products/${product._id}`}>
+                    <button className="bg-white text-black font-semibold px-4 py-2 rounded hover:bg-gray-200">
+                      View Detail
+                    </button>
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

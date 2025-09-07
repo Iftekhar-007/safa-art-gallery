@@ -69,7 +69,7 @@ export default function Banner() {
       <div className="relative max-w-6xl font-sans text-shadow-base-300 mx-auto px-4 py-8 md:py-16 h-full flex flex-col justify-center text-white">
         <motion.div
           key={current + "-text"}
-          className="max-w-2xl"
+          className="max-w-2xl bg-white/30 rounded-2xl shadow-lg backdrop-blur-md border border-white/80 p-6"
           initial={slide.textAnim} // text animation from slides array
           animate={{ x: 0, y: 50, opacity: 1 }}
           transition={{ duration: 0.8 }}
