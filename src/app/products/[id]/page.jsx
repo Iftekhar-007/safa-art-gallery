@@ -12,11 +12,12 @@ const page = async ({ params }) => {
   return (
     <div className="py-20">
       <img src={product.image} alt={product.title} />
-      <h2>details {product.title}</h2>
+      <h2>{product.title}</h2>
       <p className="text-lg text-gray-700 mb-2">{product.description}</p>
       <p className="text-sm text-gray-500">Sign: {product.sign}</p>
       <p className="text-sm text-gray-500">Date: {product.date}</p>
       <p className="text-sm text-gray-500">Time: {product.time}</p>
+      <p className="text-sm text-gray-500">Price: {product.price}BDT</p>
     </div>
   );
 };

@@ -9,6 +9,7 @@ export default function AddProductForm() {
     time: "",
     date: "",
     image: "",
+    price: "",
   });
   const [message, setMessage] = useState("");
 
@@ -38,6 +39,7 @@ export default function AddProductForm() {
           time: "",
           date: "",
           image: "",
+          price: "",
         });
       } else {
         setMessage(`❌ Error: ${data.error}`);
@@ -49,7 +51,10 @@ export default function AddProductForm() {
   };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "0 auto" }}>
+    <div
+      style={{ maxWidth: "500px", margin: "0 auto" }}
+      className="min-h-screen"
+    >
       <h2 className="text-xl font-bold mb-4">Add Product</h2>
       {message && <p className="mb-3">{message}</p>}
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -100,6 +105,15 @@ export default function AddProductForm() {
           name="image"
           placeholder="Image URL"
           value={formData.image}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded"
+        />
+        <input
+          type="number"
+          name="price"
+          placeholder="Price"
+          value={formData.price}
           onChange={handleChange}
           required
           className="border p-2 rounded"

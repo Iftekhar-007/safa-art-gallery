@@ -42,10 +42,10 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    const body = req.json();
-    const { title, description, sign, time, date, image } = body;
+    const body = await req.json();
+    const { title, description, sign, time, date, image, price } = body;
 
-    if (!title || !description || !sign || !time || !date || !image) {
+    if (!title || !description || !sign || !time || !date || !image || !price) {
       return NextResponse.json(
         { error: "All Fields Are Required" },
         { status: 400 }
@@ -60,6 +60,7 @@ export async function POST(req) {
       time,
       date,
       image,
+      price,
     };
 
     await productsCollection.insertOne(newProduct);
@@ -92,7 +93,7 @@ export async function POST(req) {
 export async function GET() {
   try {
     const productsCollection = await dbConnect("products");
-    const products = productsCollection.find({}).toArray();
+    const products = await productsCollection.find({}).toArray();
 
     return NextResponse.json(products, { status: 200 });
   } catch (error) {
