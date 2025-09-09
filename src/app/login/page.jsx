@@ -1,53 +1,3 @@
-// "use client";
-
-// import { signIn } from "next-auth/react";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-
-// export default function LoginPage() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const router = useRouter();
-
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     const res = await signIn("credentials", {
-//       redirect: false,
-//       email,
-//       password,
-//     });
-
-//     if (!res.error) {
-//       router.push("/");
-//     } else {
-//       alert("Invalid credentials!");
-//     }
-//   };
-
-//   return (
-//     <div className="py-20 min-h-screen">
-//       <h2>Login</h2>
-//       <form onSubmit={handleLogin}>
-//         <input
-//           type="email"
-//           placeholder="Email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-//         <br />
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-//         <br />
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { signIn } from "next-auth/react";
@@ -55,6 +5,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../assets/login.json";
+import Link from "next/link";
+// import { Link } from "react-router";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -110,6 +62,13 @@ export default function LoginPage() {
           <button type="submit" className="btn btn-primary w-full">
             Login
           </button>
+
+          <p className="text-sm text-center mt-4">
+            Don’t have an account?{" "}
+            <Link href="/signup" className="text-blue-600 underline">
+              Sign up here
+            </Link>
+          </p>
         </form>
       </div>
     </div>

@@ -41,6 +41,8 @@
 import dbConnect from "@/lib/dbconnect";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { signIn } from "next-auth/react";
+// import { pages } from "next/dist/build/templates/app-page";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -88,6 +90,9 @@ export const authOptions = {
   ],
 
   session: { strategy: "jwt" },
+  pages: {
+    signIn: "/login",
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 
