@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SessionProviderWrapper from "./components/SessionProviderWrapper";
+import ClientLayoutWrapper from "./components/ClientLayoutWrapper";
+// import { usePathname } from "next/navigation";
+// import { headers } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,15 +23,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // current path বের করি
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProviderWrapper>
-          <Navbar></Navbar>
-          {children}
-          <Footer></Footer>
+          <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
         </SessionProviderWrapper>
       </body>
     </html>

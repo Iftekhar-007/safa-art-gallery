@@ -70,9 +70,14 @@ const Navbar = () => {
                 <Link href="/aboutme">About Me</Link>
               </li>
               {session && ( // কেবল লগইন করলে Add Product দেখাবে
-                <li>
-                  <Link href="/addproduct">Add Product</Link>
-                </li>
+                <>
+                  <li>
+                    <Link href="/addproduct">Add Product</Link>
+                  </li>
+                  <li>
+                    <Link href="/dashboard">Dashboard</Link>
+                  </li>
+                </>
               )}
               <li>
                 <Link href="/products">Products</Link>
@@ -98,14 +103,19 @@ const Navbar = () => {
               <Link href="/aboutme">About Me</Link>
             </li>
             {session && ( // কেবল লগইন করলে Add Product দেখাবে
-              <li>
-                <Link href="/addproduct">Add Product</Link>
-              </li>
-            )}{" "}
+              <>
+                <li>
+                  <Link href="/addproduct">Add Product</Link>
+                </li>
+                <li>
+                  <Link href="/dashboard">Dashboard</Link>
+                </li>
+              </>
+            )}
             <li>
-              <Link href="/products">Products</Link>{" "}
-            </li>{" "}
-          </ul>{" "}
+              <Link href="/products">Products</Link>
+            </li>
+          </ul>
         </div>
         <div className="navbar-end">
           {session ? (
