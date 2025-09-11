@@ -1,8 +1,16 @@
 // import { useRouter } from "next/navigation";
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 const DashboardLayout = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <div className="flex">
+      <div className="flex-shrink-0">
+        <Sidebar></Sidebar>
+      </div>
+      <div className="flex-1 px-5">{children}</div>
+    </div>
+  );
 };
 
 export default DashboardLayout;
