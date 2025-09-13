@@ -1,8 +1,13 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import { MdMenuOpen } from "react-icons/md";
+import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
+  const { data: session } = useSession();
+  const role = session?.user?.role;
+  console.log(role);
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -28,12 +33,21 @@ const Sidebar = () => {
             <Link href="/" className="text-center py-5">
               Safa Art Gallery
             </Link>
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
+
+            {role == "admin" ? (
+              <>
+                <li>hello</li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <a>Sidebar Item 1</a>
+                </li>
+                <li>
+                  <a>Sidebar Item 2</a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

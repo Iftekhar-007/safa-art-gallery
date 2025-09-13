@@ -84,10 +84,27 @@ export const authOptions = {
           id: user._id.toString(),
           name: user.name,
           email: user.email,
+          role: user.role,
         };
       },
     }),
   ],
+
+  callbacks: {
+    async session({ session, token }) {
+      // Add role to session object
+      if (token) {
+        session.user.role = token.role;
+      }
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role; // save role in JWT
+      }
+      return token;
+    },
+  },
 
   session: { strategy: "jwt" },
   pages: {
