@@ -36,7 +36,9 @@ const Sidebar = () => {
 
             {role == "admin" ? (
               <>
-                <li>hello</li>
+                <li>
+                  <Link href="/dashboard/addproduct"> Add Product</Link>
+                </li>
               </>
             ) : (
               <>

@@ -72,9 +72,6 @@ const Navbar = () => {
               {session && ( // কেবল লগইন করলে Add Product দেখাবে
                 <>
                   <li>
-                    <Link href="/addproduct">Add Product</Link>
-                  </li>
-                  <li>
                     <Link href="/dashboard">Dashboard</Link>
                   </li>
                 </>
@@ -104,9 +101,6 @@ const Navbar = () => {
             </li>
             {session && ( // কেবল লগইন করলে Add Product দেখাবে
               <>
-                <li>
-                  <Link href="/addproduct">Add Product</Link>
-                </li>
                 <li>
                   <Link href="/dashboard">Dashboard</Link>
                 </li>

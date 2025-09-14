@@ -3,7 +3,7 @@
 import { useSession, signIn } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import AddProductForm from "../components/AddProductForm";
+import AddProductForm from "../../components/AddProductForm";
 
 export default function AddProductPage() {
   const { data: session, status } = useSession();
@@ -34,7 +34,7 @@ export default function AddProductPage() {
   }
 
   return (
-    <div className="p-10">
+    <div className="p-10 min-h-screen">
       {/* <h1 className="text-2xl font-bold mb-4">Add Product</h1> */}
       <AddProductForm></AddProductForm>
     </div>

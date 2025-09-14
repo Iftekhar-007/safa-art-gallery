@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function AddProductForm() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,11 @@ export default function AddProductForm() {
       const data = await res.json();
 
       if (res.ok) {
-        setMessage("✅ Product added successfully!");
+        Swal.fire({
+          title: "Product Added Successfully",
+          icon: "success",
+          draggable: true,
+        });
         setFormData({
           title: "",
           description: "",
@@ -51,10 +56,7 @@ export default function AddProductForm() {
   };
 
   return (
-    <div
-      style={{ maxWidth: "500px", margin: "0 auto" }}
-      className="min-h-screen"
-    >
+    <div style={{ maxWidth: "500px", margin: "0 auto" }}>
       <h2 className="text-xl font-bold mb-4">Add Product</h2>
       {message && <p className="mb-3">{message}</p>}
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">

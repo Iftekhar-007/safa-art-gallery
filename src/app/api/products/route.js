@@ -61,6 +61,7 @@ export async function POST(req) {
       date,
       image,
       price,
+      available: "available",
     };
 
     await productsCollection.insertOne(newProduct);
