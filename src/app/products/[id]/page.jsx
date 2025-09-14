@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 import Image from "next/image";
 import React from "react";
 
-const page = async ({ params }) => {
+const productDetail = async ({ params }) => {
   const { id } = params;
 
   const productsCollection = await dbConnect("products");
@@ -22,4 +22,4 @@ const page = async ({ params }) => {
   );
 };
 
-export default page;
+export default productDetail;
