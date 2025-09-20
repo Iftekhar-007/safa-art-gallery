@@ -1,3 +1,4 @@
+import QueryBtn from "@/app/components/queryBtn";
 import dbConnect from "@/lib/dbconnect";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
@@ -18,6 +19,8 @@ const productDetail = async ({ params }) => {
       <p className="text-sm text-gray-500">Date: {product.date}</p>
       <p className="text-sm text-gray-500">Time: {product.time}</p>
       <p className="text-sm text-gray-500">Price: {product.price}BDT</p>
+
+      <QueryBtn></QueryBtn>
     </div>
   );
 };
