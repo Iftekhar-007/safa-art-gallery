@@ -10,7 +10,7 @@ export default function ClientLayoutWrapper({ children }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true); // ensures client-side render
+    setMounted(true);
   }, []);
 
   if (!mounted) return null;
