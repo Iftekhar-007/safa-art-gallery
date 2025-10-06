@@ -46,7 +46,7 @@ const Sidebar = () => {
             ) : (
               <>
                 <li>
-                  <a>Sidebar Item 1</a>
+                  <Link href="/dashboard/wishlist">My Wishlist</Link>
                 </li>
                 <li>
                   <a>Sidebar Item 2</a>

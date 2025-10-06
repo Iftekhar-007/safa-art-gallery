@@ -38,10 +38,19 @@ export async function POST(req) {
   }
 }
 
-export async function GET() {
+export async function GET(req) {
   try {
+    const { searchParams } = new URL(req.url);
+    const email = searchParams.get("email");
+
+    if (!email) {
+      return NextResponse.json(
+        { message: "Email is required" },
+        { status: 400 }
+      );
+    }
     const wishListCollection = await dbConnect("wishlist");
-    const products = await wishListCollection.find({}).toArray();
+    const products = await wishListCollection.find({ email }).toArray();
 
     return NextResponse.json(products, { status: 200 });
   } catch (error) {
