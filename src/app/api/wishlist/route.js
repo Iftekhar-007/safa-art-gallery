@@ -4,19 +4,25 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { title, sign, time, date, image, price } = body;
+    const { id, title, sign, time, image, price, email } = body;
 
     const wishListCollection = await dbConnect("wishlist");
 
     const addedToWishlist = {
+      id,
       title,
       sign,
       time,
-      date,
       image,
       price,
+      email,
       status: "pending",
     };
+
+    const isExist = await wishListCollection.findOne({ email, id });
+    if (isExist) {
+      return NextResponse.json({ message: "already added" }, { status: 200 });
+    }
 
     await wishListCollection.insertOne(addedToWishlist);
 

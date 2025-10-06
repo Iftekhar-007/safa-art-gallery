@@ -58,7 +58,7 @@ const productDetail = async ({ params }) => {
               {product.price} BDT
             </p>
 
-            <QueryBtn />
+            <QueryBtn product={product} />
           </div>
         </div>
       </div>
