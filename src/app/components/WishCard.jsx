@@ -1,15 +1,3 @@
-// import React from "react";
-
-// const WishCard = ({ pro }) => {
-//   return (
-//     <div>
-//       <h2>{pro.title}</h2>
-//     </div>
-//   );
-// };
-
-// export default WishCard;
-
 import React from "react";
 
 const WishCard = ({ pro }) => {
@@ -34,14 +22,14 @@ const WishCard = ({ pro }) => {
         </h2>
 
         <p className="text-sm text-gray-500 flex items-center justify-between">
-          <span>Sign: {pro.sign}</span>
+          <span>Price: {pro.price}</span>
           <span className="text-xs bg-gray-100 px-2 py-0.5 rounded-full">
             {pro.status}
           </span>
         </p>
 
         <button className="w-full mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 rounded-xl transition-all">
-          View Details
+          Make an Offer
         </button>
       </div>
     </div>
