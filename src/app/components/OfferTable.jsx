@@ -1,5 +1,7 @@
 // import React from "react";
 
+import { useSession } from "next-auth/react";
+
 // const OfferTable = () => {
 //   return <div>okay</div>;
 // };
@@ -8,6 +10,7 @@
 
 // src/components/OfferTable.jsx
 export default function OfferTable({ offers }) {
+  const { data: session } = useSession();
   return (
     <table className="w-full border-collapse border border-gray-300 text-sm">
       <thead className="bg-gray-100">
@@ -18,6 +21,9 @@ export default function OfferTable({ offers }) {
           <th className="border p-2 text-black">Offered Price</th>
           <th className="border p-2 text-black">Email</th>
           <th className="border p-2 text-black">Date</th>
+          {session?.user?.role === "admin" && (
+            <th className="border p-2 text-black">Action</th>
+          )}
         </tr>
       </thead>
       <tbody>
@@ -37,6 +43,17 @@ export default function OfferTable({ offers }) {
             <td className="border p-2">
               {new Date(offer.createdAt).toLocaleDateString()}
             </td>
+            {session?.user?.role === "admin" && (
+              <td className="border p-2">
+                <button className="btn btn-success">Approve</button>
+              </td>
+            )}
+
+            {/* <td>
+              {session?.user?.role === "admin" && (
+                <button className="btn text-white">Approve</button>
+              )}
+            </td> */}
           </tr>
         ))}
       </tbody>
