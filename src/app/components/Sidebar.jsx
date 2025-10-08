@@ -42,6 +42,9 @@ const Sidebar = () => {
                 <li>
                   <Link href="/dashboard/addedproducts"> Added Product</Link>
                 </li>
+                <li>
+                  <Link href="/dashboard/admin">My Offered product</Link>
+                </li>
               </>
             ) : (
               <>
@@ -49,7 +52,7 @@ const Sidebar = () => {
                   <Link href="/dashboard/wishlist">My Wishlist</Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/myoffers">My Offered product</Link>
+                  <Link href="/dashboard/user">My Offered product</Link>
                 </li>
               </>
             )}
