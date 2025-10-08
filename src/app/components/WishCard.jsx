@@ -100,7 +100,7 @@ const WishCard = ({ pro, userEmail }) => {
                 <input
                   value={pro.title}
                   readOnly
-                  className="w-full border rounded-lg p-2 bg-gray-100"
+                  className="text-black w-full border rounded-lg p-2 bg-gray-100"
                 />
               </div>
 
@@ -109,7 +109,7 @@ const WishCard = ({ pro, userEmail }) => {
                 <input
                   value={pro.price}
                   readOnly
-                  className="w-full border rounded-lg p-2 bg-gray-100"
+                  className="text-black w-full border rounded-lg p-2 bg-gray-100"
                 />
               </div>
 

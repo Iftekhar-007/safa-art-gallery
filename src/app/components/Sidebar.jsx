@@ -49,7 +49,7 @@ const Sidebar = () => {
                   <Link href="/dashboard/wishlist">My Wishlist</Link>
                 </li>
                 <li>
-                  <a>Sidebar Item 2</a>
+                  <Link href="/dashboard/myoffers">My Offered product</Link>
                 </li>
               </>
             )}
