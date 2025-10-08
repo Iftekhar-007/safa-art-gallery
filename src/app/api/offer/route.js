@@ -1,4 +1,5 @@
 import dbConnect from "@/lib/dbconnect";
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
@@ -16,6 +17,14 @@ export async function POST(req) {
       offeredPrice,
       createdAt: new Date(),
     };
+
+    const isExist = await offersCollection.findOne({ email, id });
+    if (isExist) {
+      return NextResponse.json(
+        { message: "product already added" },
+        { status: 200 }
+      );
+    }
 
     await offersCollection.insertOne(newOffer);
     return Response.json(

@@ -24,7 +24,17 @@ const WishCard = ({ pro, userEmail }) => {
       body: JSON.stringify(offerData),
     });
 
-    if (res.ok) {
+    const offeringData = await res.json();
+    if (offeringData.message === "product already added") {
+      Swal.fire({
+        title: "Product already added to offer list",
+        icon: "warning",
+        draggable: true,
+      });
+
+      setIsOpen(false);
+      setOfferAmount("");
+    } else if (res.ok) {
       Swal.fire({
         title: "Product Offer Successful",
         icon: "success",
