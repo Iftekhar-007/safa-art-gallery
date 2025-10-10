@@ -63,20 +63,20 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-sans"
             >
-              <li>
+              <li className="text-white">
                 <Link href="/">Home</Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link href="/aboutme">About Me</Link>
               </li>
               {session && ( // কেবল লগইন করলে Add Product দেখাবে
                 <>
-                  <li>
+                  <li className="text-white">
                     <Link href="/dashboard">Dashboard</Link>
                   </li>
                 </>
               )}
-              <li>
+              <li className="text-white">
                 <Link href="/products">Products</Link>
               </li>
             </ul>
@@ -85,7 +85,7 @@ const Navbar = () => {
           {/* Logo should be a Link instead of raw <a> */}
           <Link
             href="/"
-            className="font-sans flex items-center gap-1 lg:font-bold lg:text-3xl"
+            className="font-sans flex items-center gap-1 lg:font-bold lg:text-3xl text-white"
           >
             <TbBrandCraft size={40} className="bg-red-600" />
             <span>Safa</span> Art Gallery
@@ -94,20 +94,26 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-sans">
             <li>
-              <Link href="/">Home</Link>
+              <Link className="text-white" href="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/aboutme">About Me</Link>
+              <Link className="text-white" href="/aboutme">
+                About Me
+              </Link>
             </li>
             {session && ( // কেবল লগইন করলে Add Product দেখাবে
               <>
-                <li>
+                <li className="text-white">
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
               </>
             )}
             <li>
-              <Link href="/products">Products</Link>
+              <Link className="text-white" href="/products">
+                Products
+              </Link>
             </li>
           </ul>
         </div>
